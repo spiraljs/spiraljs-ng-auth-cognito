@@ -1,0 +1,45 @@
+<div class="container">
+    <h2>Register New User</h2>
+    <div class="form-group required">
+        <label for="user_pool" class="control-label">User Pool Id:</label>
+        <input type="text" class="form-control" id="user_pool" placeholder="Enter User Pool Id" name="userpool"
+            [(ngModel)]="this.cacheSvc.userPoolId" required>
+    </div>
+    <div class="form-group required">
+        <label for="client_id" class="control-label">Client Id:</label>
+        <input type="text" class="form-control" id="client_id" placeholder="Enter User Pool Id" name="clientid"
+            [(ngModel)]="this.cacheSvc.clientId" required>
+    </div>
+    <div class="form-group required">
+        <label for="usr" class="control-label">User Id:</label>
+        <input type="text" class="form-control" id="usrid" name="userid" placeholder="Enter User Id"
+            [(ngModel)]="this.userId" required>
+    </div>
+    <div class="form-group required">
+        <label for="pwd" class="control-label">Password:</label>
+        <input type="password" class="form-control" id="pwd" name="password" placeholder="Enter Password"
+            [(ngModel)]="this.userPassword">
+    </div>
+    <div class="form-group">
+        <label for="user_email">Email:</label>
+        <input type="email" class="form-control" id="user_email" name="useremail" placeholder="Enter User Email"
+            [(ngModel)]="this.userEmail">
+    </div>
+    <div class="form-group">
+        <label for="user_phone">Phone:</label>
+        <input type="number" class="form-control" id="user_phone" name="userphone" placeholder="Enter User Phone"
+            [(ngModel)]="this.userPhoneNum">
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary" (click)="registerUser()">Register</button>
+        &nbsp;&nbsp;
+        <button type="button" class="btn btn-danger" (click)="gotoCognitoHome()">Go Back</button>
+    </div>
+
+    <br><br>
+    <div class="alert alert-info">
+        <strong>{{ this.lastMsgTitle }}</strong>&nbsp;&nbsp;{{this.lastMsgText}}
+    </div>
+
+</div>

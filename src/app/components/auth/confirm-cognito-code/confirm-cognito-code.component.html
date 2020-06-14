@@ -1,0 +1,35 @@
+<div class="container">
+    <h2>Confirm New User with Cognito verification code</h2>
+    <br>
+    <div class="form-group">
+        <label for="user_pool">User Pool Id:</label>
+        <input type="text" class="form-control" id="user_pool" placeholder="Enter User Pool Id" name="userpool"
+            [(ngModel)]="this.cacheSvc.userPoolId">
+    </div>
+    <div class="form-group">
+        <label for="client_id">App Client Id:</label>
+        <input type="text" class="form-control" id="client_id" placeholder="Enter App Client Id" name="clientid"
+            [(ngModel)]="this.cacheSvc.clientId">
+    </div>
+    <div class="form-group">
+        <label for="usr">User Id:</label>
+        <input type="text" class="form-control" id="usr" name="userId" placeholder="Enter User Id"
+            [(ngModel)]="this.userId">
+    </div>
+    <div class="form-group">
+        <label for="ver_code">Verification Code:</label>
+        <input type="text" class="form-control" id="ver_code" name="ver_code" placeholder="Enter Code"
+            [(ngModel)]="this.code2Confirm">
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary" (click)="confirmCode()">Confirm</button>
+        &nbsp;&nbsp;
+        <button type="button" class="btn btn-danger" (click)="gotoCognitoHome()">Go Back</button>
+    </div>
+
+    <br><br>
+    <div class="alert alert-info">
+        <strong>{{ this.lastMsgTitle }}</strong>&nbsp;&nbsp;{{this.lastMsgText}}
+    </div>
+</div>

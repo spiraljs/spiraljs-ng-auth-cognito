@@ -1,0 +1,54 @@
+<div class="container">
+    <h2>Forgot Password</h2>
+    <br>
+    <!-- <div class="form-group">
+        <label for="id_pool">Identity Pool Id:</label>
+        <input type="text" class="form-control" id="id_pool" placeholder="Enter Identity Pool Id" name="idpool"
+            [(ngModel)]="this.identityPoolId">
+    </div> -->
+    <div class="form-group">
+        <label for="user_pool">User Pool Id:</label>
+        <input type="text" class="form-control" id="user_pool" placeholder="Enter User Pool Id" name="userpool"
+            [(ngModel)]="this.cacheSvc.userPoolId">
+    </div>
+    <div class="form-group">
+        <label for="client_id">App Client Id:</label>
+        <input type="text" class="form-control" id="client_id" placeholder="Enter App Client Id" name="clientid"
+            [(ngModel)]="this.cacheSvc.clientId">
+    </div>
+    <div class="form-group">
+        <label for="user_id">User Id:</label>
+        <input type="text" class="form-control" id="user_id" name="user_id" placeholder="Enter User Id"
+            [(ngModel)]="this.userId">
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary" (click)="forgotPassword()">Forgot Password</button>
+        &nbsp;&nbsp;
+        <button type="button" class="btn btn-danger" (click)="gotoCognitoHome()">Go Back</button>
+    </div>
+
+
+    <br><br>
+    <div class="form-group">
+        <label for="verif_code">Verification Code:</label>
+        <input type="password" class="form-control" id="verif_code" name="verif_code" placeholder="Verification Code"
+            [(ngModel)]="this.verificationCode">
+    </div>
+    <div class="form-group">
+        <label for="new_pwd">New Password:</label>
+        <input type="password" class="form-control" id="new_pwd" name="new_pwd" placeholder="Enter New Password"
+            [(ngModel)]="this.newPassword">
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary" (click)="confirmPassword()">Confirm Password</button>
+        &nbsp;&nbsp;
+        <button type="button" class="btn btn-danger" (click)="gotoCognitoHome()">Go Back</button>
+    </div>
+
+
+
+    <br><br>
+    <div class="alert alert-info">
+        <strong>{{ this.lastMsgTitle }}</strong>&nbsp;&nbsp;{{this.lastMsgText}}
+    </div>
+</div>

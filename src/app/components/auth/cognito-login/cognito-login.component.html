@@ -1,0 +1,45 @@
+<div class="container">
+    <h2>Login with User Id</h2>
+    <br>
+    <div class="form-group required">
+        <label for="aws_region" class="control-label">AWS Region:</label>
+        <input type="text" class="form-control" id="aws_region" placeholder="Enter AWS Region" name="region"
+            [(ngModel)]="this.cacheSvc.awsRegion" required>
+    </div>
+    <div class="form-group">
+        <label for="id_pool">Identity Pool Id:</label>
+        <input type="text" class="form-control" id="id_pool" placeholder="Enter Identity Pool Id" name="idpool"
+            [(ngModel)]="this.cacheSvc.identityPoolId">
+    </div>
+    <div class="form-group required">
+        <label for="user_pool" class="control-label">User Pool Id:</label>
+        <input type="text" class="form-control" id="user_pool" placeholder="Enter User Pool Id" name="userpool"
+            [(ngModel)]="this.cacheSvc.userPoolId" required>
+    </div>
+    <div class="form-group required">
+        <label for="client_id" class="control-label">App Client Id:</label>
+        <input type="text" class="form-control" id="client_id" placeholder="Enter App Client Id" name="clientid"
+            [(ngModel)]="this.cacheSvc.clientId" required>
+    </div>
+    <div class="form-group required">
+        <label for="user_id" class="control-label">User Id:</label>
+        <input type="text" class="form-control" id="user_id" name="user_id" placeholder="Enter User Id"
+            [(ngModel)]="this.userId" required>
+    </div>
+    <div class="form-group required">
+        <label for="pwd" class="control-label">Password:</label>
+        <input type="password" class="form-control" id="pwd" name="password" placeholder="Enter Password"
+            [(ngModel)]="this.userPassword" required>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary" (click)="userLoginWUserName()">Login</button>
+        &nbsp;&nbsp;
+        <button type="button" class="btn btn-danger" (click)="gotoCognitoHome()">Go Back</button>
+    </div>
+
+    <br><br>
+    <div class="alert alert-info">
+        <strong>{{ this.lastMsgTitle }}</strong>&nbsp;&nbsp;{{this.lastMsgText}}
+    </div>
+</div>

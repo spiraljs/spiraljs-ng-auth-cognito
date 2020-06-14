@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand text-success" (click)="gotoHome()">
+        SpiralJS
+    </a>
+
+    <button #navBarButton class="navbar-toggler" type="button" (click)="toggleNavbar()">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navMainMenu" #navMenu class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+        <li class="nav-item">
+            <a class="nav-link" href="https://github.com/spiraljs/spiraljs-ng-auth-cognito" target="_blank">Repo</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#">Docs</a>
+        </li>
+    </div>
+</nav>
+<br>
+<router-outlet></router-outlet>

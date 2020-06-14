@@ -1,0 +1,5 @@
+#to build library
+ng build spirajs-ng-auth-cognito
+
+#to generate tgz
+npm pack
