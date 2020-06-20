@@ -22,10 +22,6 @@ export class CognitoResendCodeComponent implements OnInit, IResendCodeCallback {
   ngOnInit(): void {
   }
 
-  gotoCognitoHome() {
-    this.router.navigate(["/auth/cognito"]);
-  }
-
   gotoHome() {
     this.router.navigate(["/"]);
   }

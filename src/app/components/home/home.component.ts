@@ -19,35 +19,35 @@ export class HomeComponent implements OnInit {
   }
 
   gotoAuthCognitoRegister() {
-    this.router.navigate(["/auth/cognito/register"]);
+    this.router.navigate(["/register"]);
   }
 
   gotoAuthCognitoLogin() {
-    this.router.navigate(["/auth/cognito/login"]);
+    this.router.navigate(["/login"]);
   }
 
   gotoAuthCognitoConfirmCode() {
-    this.router.navigate(["/auth/cognito/confirm-code"]);
+    this.router.navigate(["/confirm-code"]);
   }
 
   gotoAuthCognitoResendCode() {
-    this.router.navigate(["/auth/cognito/resend-code"]);
+    this.router.navigate(["/resend-code"]);
   }
 
   gotoAuthCognitoChangePwd() {
-    this.router.navigate(["/auth/cognito/change-password"]);
+    this.router.navigate(["/change-password"]);
   }
 
   gotoAuthCognitoForgotCode() {
-    this.router.navigate(["/auth/cognito/forgot-password"]);
+    this.router.navigate(["/forgot-password"]);
   }
 
   gotoAuthCognitoSession() {
-    this.router.navigate(["/auth/cognito/get-session"]);
+    this.router.navigate(["/get-session"]);
   }
 
   logoutUser() {
-    this.router.navigate(["/auth/cognito/logout"]);
+    this.router.navigate(["/logout"]);
   }
 
 }

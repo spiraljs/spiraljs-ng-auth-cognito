@@ -25,10 +25,6 @@ export class CognitoRegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  gotoCognitoHome() {
-    this.router.navigate(["/auth/cognito"]);
-  }
-
   gotoHome() {
     this.router.navigate(["/"]);
   }

@@ -23,10 +23,6 @@ export class CognitoLogoutComponent implements OnInit, ILogoutCallback {
   ngOnInit(): void {
   }
 
-  gotoCognitoHome() {
-    this.router.navigate(["/auth/cognito"]);
-  }
-
   gotoHome() {
     this.router.navigate(["/"]);
   }

@@ -22,10 +22,6 @@ export class CognitoSessionComponent implements OnInit, ILoggedInCallback {
   ngOnInit(): void {
   }
 
-  gotoCognitoHome() {
-    this.router.navigate(["/auth/cognito"]);
-  }
-
   gotoHome() {
     this.router.navigate(["/"]);
   }

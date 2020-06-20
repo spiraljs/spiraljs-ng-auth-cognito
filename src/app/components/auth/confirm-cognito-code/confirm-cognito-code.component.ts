@@ -23,10 +23,6 @@ export class ConfirmCognitoCodeComponent implements OnInit, IConfirmCallback {
   ngOnInit(): void {
   }
 
-  gotoCognitoHome() {
-    this.router.navigate(["/auth/cognito"]);
-  }
-
   gotoHome() {
     this.router.navigate(["/"]);
   }

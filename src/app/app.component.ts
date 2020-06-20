@@ -27,14 +27,4 @@ export class AppComponent {
     this.closeNavbar();
   }
 
-  gotoAuthCustom(){
-    this.router.navigate(["/auth/custom"]);
-    this.closeNavbar();
-  }
-
-  gotoAuthCognito() {
-    this.router.navigate(["/auth/cognito"]);
-    this.closeNavbar();
-  }
-
 }

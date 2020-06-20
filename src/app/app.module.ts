@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { CognitoHomeComponent } from './components/auth/cognito-home/cognito-home.component';
+//import { CognitoHomeComponent } from './components/auth/cognito-home/cognito-home.component';
 import { CognitoRegisterComponent } from './components/auth/cognito-register/cognito-register.component';
 import { CognitoLoginComponent } from './components/auth/cognito-login/cognito-login.component';
 import { SetCognitoPasswordComponent } from './components/auth/set-cognito-password/set-cognito-password.component';
@@ -20,7 +20,6 @@ import { CognitoLogoutComponent } from './components/auth/cognito-logout/cognito
   declarations: [
     AppComponent,
     HomeComponent,
-    CognitoHomeComponent,
     CognitoRegisterComponent,
     CognitoLoginComponent,
     SetCognitoPasswordComponent,

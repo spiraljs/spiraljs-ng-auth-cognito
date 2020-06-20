@@ -24,10 +24,6 @@ export class CognitoChangePwdComponent implements OnInit, IChangePasswordCallbac
   ngOnInit(): void {
   }
 
-  gotoCognitoHome() {
-    this.router.navigate(["/auth/cognito"]);
-  }
-
   gotoHome() {
     this.router.navigate(["/"]);
   }
