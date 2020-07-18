@@ -107,9 +107,7 @@ export class SpiraljsNgAuthCognitoService {
 
       userPool.signUp(userId, password, attributeList, null, function (err, result) {
         if (err) {
-          throw new Error(err.message);
-          // registerCallback.registerUserCallback(err.message, null);
-          // return;
+          registerCallback.registerUserCallback(err, null);
         } else {
           var cognitoUser = new SpiralUser();
           cognitoUser.CognitoUserName = result.user.getUsername();
