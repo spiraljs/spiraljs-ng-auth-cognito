@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 You can test this project at http://test.ng-auth-cognito.spiraljs.org
 
 
-Steps to build library
+## Steps to build library
 1. ng build spiraljs-ng-auth-cognito
 2. cd dist/spiraljs-ng-auth-cognito
 3. npm pack
