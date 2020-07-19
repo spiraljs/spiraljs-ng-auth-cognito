@@ -2,7 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
 
+Library can be downloaded from https://s3.amazonaws.com/code.spiraljs.org/ng/auth/cognito/spiraljs-ng-auth-cognito-1.0.0.tgz
+
 You can test this project at http://test.ng-auth-cognito.spiraljs.org
+
 
 ## How to build library and test
 ### Steps to build library
@@ -17,7 +20,7 @@ You will get a tgz file which can be used in your project
     npm install
     ng build spiraljs-ng-auth-cognito
     ng serve -o
-    Goto http://localhost:4200
+Now you can see the test app running in  http://localhost:4200
 
 
 ### Steps to test this test online 
