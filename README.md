@@ -4,32 +4,32 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 You can test this project at http://test.ng-auth-cognito.spiraljs.org
 
-
-## Steps to build library
-1. npm install
-2. ng build spiraljs-ng-auth-cognito
-3. cd dist/spiraljs-ng-auth-cognito
-4. npm pack
-5. You will get a tgz file which can be used in your project
-
-
-## Steps to test this library from local
-1. npm install
-2. ng build spiraljs-ng-auth-cognito
-3. ng serve -o
-4. Goto http://localhost:4200
+## How to build library and test
+### Steps to build library
+    npm install
+    ng build spiraljs-ng-auth-cognito
+    cd dist/spiraljs-ng-auth-cognito
+    npm pack
+You will get a tgz file which can be used in your project
 
 
-## Steps to test this test online 
+### Steps to test this library from local
+    npm install
+    ng build spiraljs-ng-auth-cognito
+    ng serve -o
+    Goto http://localhost:4200
+
+
+### Steps to test this test online 
 1. Goto http://test.ng-auth-cognito.spiraljs.org/
 
 
 ## How to register a new User in AWS Cognito
 1. Create a User Pool in AWS Cognito. See https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-as-user-directory.html 
-2. Goto User Pool,  Collect "Pool ID" and "App client id"
+2. Goto User Pool,  Collect **Pool Id** and **App client Id**
 3. Goto http://test.ng-auth-cognito.spiraljs.org/
-4. Provide Pool ID, Client ID, User ID and password and "Register"
-5. No you see the new user created under your AWS User Pool
+4. Provide **Pool Id**, **Client Id**, **User Id** and password and "Register"
+5. Now you can see the new user created under your AWS User Pool
 
 
 
