@@ -1,4 +1,4 @@
-# SpiralJSNgAuthCognitoTest
+# SpiralJSNgAuthCognito & SpiralJSNgAuthCognitoTest
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.   It contain an Angular library and a web application to test the library.   The library will help you to authenticate users with AWS Cognito. 
 
