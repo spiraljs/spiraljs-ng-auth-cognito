@@ -24,7 +24,7 @@
     "aws-sdk": "^2.696.0",
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.4",
     "spiraljs-ng-auth-cognito": "file:dist/spiraljs-ng-auth-cognito",
