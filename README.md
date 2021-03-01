@@ -3,8 +3,8 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.   It contain an Angular library and a web application to test the library.   The library will help you to authenticate users with AWS Cognito. 
 
 Following Library versions are available to use in your project
-    Angular v9  -  https://s3.amazonaws.com/code.spiraljs.org/ng/auth/cognito/spiraljs-ng-auth-cognito-1.0.0.tgz
-    Angular v11 -  https://s3.amazonaws.com/code.spiraljs.org/ng/auth/cognito/spiraljs-ng-auth-cognito-2.0.0.tgz
+- Angular v9  -  https://s3.amazonaws.com/code.spiraljs.org/ng/auth/cognito/spiraljs-ng-auth-cognito-1.0.0.tgz
+- Angular v11 -  https://s3.amazonaws.com/code.spiraljs.org/ng/auth/cognito/spiraljs-ng-auth-cognito-2.0.0.tgz
 
 You can test this project at http://test.ng-auth-cognito.spiraljs.org
 
