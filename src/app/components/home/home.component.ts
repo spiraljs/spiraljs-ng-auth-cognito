@@ -38,6 +38,10 @@ export class HomeComponent implements OnInit {
     this.router.navigate(["/change-password"]);
   }
 
+  gotoAuthCognitoChangeTempPwd() {
+    this.router.navigate(["/change-temp-password"]);
+  }
+
   gotoAuthCognitoForgotCode() {
     this.router.navigate(["/forgot-password"]);
   }

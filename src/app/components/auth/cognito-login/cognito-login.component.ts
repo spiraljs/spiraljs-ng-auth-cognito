@@ -41,6 +41,7 @@ export class CognitoLoginComponent implements OnInit {
     // this.isLoginProgress = false;
 
     if (message != null) { //error
+      console.log(message);
       // this.errorMessage = message;
       this.lastMsgTitle = "message: " + message;
       this.lastMsgText = "result: " + result;
@@ -48,10 +49,15 @@ export class CognitoLoginComponent implements OnInit {
         console.log("redirecting");
         // this.userLoginService.registedUser = OsUserAuthInput.fromLoginInput(this.isPhoneInput, this.phoneCode, this.emailOrPhone, null);
         //UserAuthInput.fromUserInput(this.email, this.phoneCode, this.phoneNumber);
-        this.router.navigate(['/auth/cognito/confirm-code']);
+        this.router.navigate(['/confirm-code']);
       } else if (message === 'User needs to set password.') {
         console.log("redirecting to set new password");
-        this.router.navigate(['/auth/cognito/new-password']);
+        this.router.navigate(['/new-password']);
+      } else if (message === 'new_password_required'){
+        console.log("redirecting to change temporary password");
+        this.cacheSvc.cognitoUserId = this.userId;
+        this.cacheSvc.userAttributes = result;
+        this.router.navigate(['/change-temp-password']);
       }
     } else { //success
       this.lastMsgTitle = "success";

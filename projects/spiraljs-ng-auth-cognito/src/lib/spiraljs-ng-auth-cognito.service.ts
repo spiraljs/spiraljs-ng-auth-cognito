@@ -4,8 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as AWS from 'aws-sdk/global';
 import * as STS from "aws-sdk/clients/sts";
 import { SpiralUser, SpiralUserAuthInput } from './auth/user';
-import { AuthenticationDetails, CognitoUser, CognitoUserAttribute, CognitoUserSession, CognitoUserPool } from "amazon-cognito-identity-js";
-import { ILoggedInCallback, IValidateSessionCallback, IRegisterCallback, IConfirmCallback, IResendCodeCallback, IChangePasswordCallback, ICognitoSessionCallback, IForgotPasswordCallback, ILogoutCallback, IUserAttributes, IAuthenticateCallback } from './spiraljs-ng-auth-cognito-interface';
+import { AuthenticationDetails, CognitoUser, CognitoUserAttribute, CognitoUserPool } from "amazon-cognito-identity-js";
+import { ILoggedInCallback, IValidateSessionCallback, IRegisterCallback, IConfirmCallback, IResendCodeCallback, IChangePasswordCallback, ICognitoSessionCallback, IForgotPasswordCallback, ITempPasswordCallback, ILogoutCallback, IUserAttributes, IAuthenticateCallback } from './spiraljs-ng-auth-cognito-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -195,6 +195,17 @@ export class SpiraljsNgAuthCognitoService {
           // alert(err.message || JSON.stringify(err));
           callback.authenticateCallback(err.message || JSON.stringify(err), null);
         },
+
+        newPasswordRequired: function (userAttributes, requiredAttributes) {
+          // User was signed up by an admin and must provide new
+          // password and required attributes, if any, to complete
+          // authentication.
+
+          // the api doesn't accept this field back
+          delete userAttributes.email_verified;
+
+          callback.authenticateCallback("new_password_required", userAttributes);
+        }
 
       });
     } catch (error) {
@@ -444,7 +455,7 @@ export class SpiraljsNgAuthCognitoService {
           throw new Error("Invalid user session.");
         }
         else {
-          var currUserId = session.username;
+          var currUserId = session.getAccessToken().payload.username;
           if (currUserId != userId) {
             // callback.changePasswordCallback("Invalid User Id.", null);
             throw new Error("Invalid User Id.");
@@ -518,24 +529,29 @@ export class SpiraljsNgAuthCognitoService {
   retrieveAtribute(userPoolId: string, clientId: string, userId: string, callback: IUserAttributes) {
     try {
       var userPool = this.prepareCognitoPool(userPoolId, clientId);
-      // var userData = {
-      //   Username: userId,
-      //   Pool: userPool
-      // };
       var cognitoUser = this.prepareCognitoUser(userPool, userId);
-      cognitoUser.getUserAttributes(function (err, result) {
-        if (err) {
-          // alert(err.message || JSON.stringify(err));
-          // return;
-          // callback.retrieveAttributesCallback(err.message, null);
-          throw new Error(err.message || JSON.stringify(err));
-        } else {
-          callback.retrieveAttributesCallback(null, result);
-        }
-        // for (var i = 0; i < result.length; i++) {
-        //   console.log('attribute ' + result[i].getName() + ' has value ' + result[i].getValue());
-        // }
-      });
+
+      if (cognitoUser) {
+        cognitoUser.getSession(function (err, session) {
+          if (err) {
+            throw new Error(err.message || JSON.stringify(err));
+          }
+          console.log('session validity: ' + session.isValid());
+
+          cognitoUser.getUserAttributes(function (err, result) {
+            if (err) {
+              throw new Error(err.message || JSON.stringify(err));
+            } else {
+              callback.retrieveAttributesCallback(null, result);
+            }
+            // for (var i = 0; i < result.length; i++) {
+            //   console.log('attribute ' + result[i].getName() + ' has value ' + result[i].getValue());
+            // }
+          });
+        })
+      } else {
+        throw new Error("User is not authenticated.");
+      }
     } catch (error) {
       callback.retrieveAttributesCallback(error, null);
     }
@@ -574,6 +590,14 @@ export class SpiraljsNgAuthCognitoService {
     }
   }
 
+  /**
+   * method desc
+   * @param {string} param1 desc
+   * @param {string} param2 desc
+   * @returns {string} return value desc
+   * @example
+   * sample code here
+   */
   confirmNewPassword(userPoolId: string, clientId: string, userId: string, verificationCode: string, newPassword: string, callback: IForgotPasswordCallback) {
     try {
       var userPool = this.prepareCognitoPool(userPoolId, clientId);
@@ -590,6 +614,33 @@ export class SpiraljsNgAuthCognitoService {
       });
     } catch (error) {
       callback.forgotPasswordCallback(error, null);
+    }
+  }
+
+  /**
+   * method desc
+   * @param {string} param1 desc
+   * @param {string} param2 desc
+   * @returns {string} return value desc
+   * @example
+   * sample code here
+   */
+  changeTempPassword(userPoolId: string, clientId: string, userId: string, newPassword: string, userAttributes: any, callback: ITempPasswordCallback) {
+    try {
+      var userPool = this.prepareCognitoPool(userPoolId, clientId);
+      var cognitoUser = this.prepareCognitoUser(userPool, userId);
+
+      cognitoUser.completeNewPasswordChallenge(newPassword, userAttributes, {
+        onSuccess: result => {
+          callback.tempPasswordCallback(null, "Temporary Password Changed");
+        },
+        onFailure: err => {
+          throw err
+        }
+      })
+
+    } catch (error) {
+      callback.tempPasswordCallback(error, null);
     }
   }
 }

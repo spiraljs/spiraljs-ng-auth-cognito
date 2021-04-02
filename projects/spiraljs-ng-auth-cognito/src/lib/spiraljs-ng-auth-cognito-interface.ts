@@ -1,6 +1,5 @@
 import { CognitoUser } from 'amazon-cognito-identity-js';
 import { SpiralUser, SpiralPreAuthUser } from "./auth/user";
-//import { SpiralPreAuthUser } from "./auth/user-session";
 
 export interface IRegisterCallback {
   registerUserCallback(error: any, user: SpiralUser);
@@ -58,6 +57,10 @@ export interface ICognitoSessionCallback {
 
 export interface IForgotPasswordCallback {
   forgotPasswordCallback(error: any, result: any): void;
+}
+
+export interface ITempPasswordCallback {
+  tempPasswordCallback(error: any, result: any): void;
 }
 
 export interface ILogoutCallback {

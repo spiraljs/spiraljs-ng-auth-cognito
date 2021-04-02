@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CognitoUserPool } from 'amazon-cognito-identity-js';
+// import { CognitoUserPool } from 'amazon-cognito-identity-js';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ export class CacheService {
   userPoolId: string = null;
   clientId: string = null;
   cognitoUserId: string = null;
+  userAttributes: any = null;
 
   constructor() { }
 }

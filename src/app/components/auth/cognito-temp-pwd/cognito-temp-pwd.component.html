@@ -1,32 +1,33 @@
 <div class="container">
-    <h2>Get Current Session</h2>
+    <h2>Change Temporary Password</h2>
     <br>
     <div class="form-group">
         <label for="user_pool">User Pool Id:</label>
         <input type="text" class="form-control" id="user_pool" placeholder="Enter User Pool Id" name="userpool"
-            [(ngModel)]="this.cacheSvc.userPoolId">
+            [(ngModel)]="this.cacheSvc.userPoolId" readonly>
     </div>
     <div class="form-group">
         <label for="client_id">App Client Id:</label>
         <input type="text" class="form-control" id="client_id" placeholder="Enter App Client Id" name="clientid"
-            [(ngModel)]="this.cacheSvc.clientId">
+            [(ngModel)]="this.cacheSvc.clientId" readonly>
     </div>
-    <div>
-        <button type="submit" class="btn btn-primary" (click)="getSession()">Get Current Session</button>
-        &nbsp;&nbsp;
-        <button type="submit" class="btn btn-primary" (click)="getUser()">Get Current User</button>
-    </div>
-    <br>
     <div class="form-group">
-        <label for="user_id">Cognito User Id:</label>
+        <label for="user_id">User Id:</label>
         <input type="text" class="form-control" id="user_id" name="user_id" placeholder="Enter User Id"
-            [(ngModel)]="this.cacheSvc.cognitoUserId">
+            [(ngModel)]="this.cacheSvc.cognitoUserId" readonly>
     </div>
+    <div class="form-group">
+        <label for="new_pwd">New Password:</label>
+        <input type="password" class="form-control" id="new_pwd" name="new_pwd" placeholder="Enter New Password"
+            [(ngModel)]="this.newPassword">
+    </div>
+
     <div>
-        <button type="submit" class="btn btn-primary" (click)="getUserAttributes()">Get User Attributes</button>
+        <button type="submit" class="btn btn-primary" (click)="changePassword()">Change Password</button>
         &nbsp;&nbsp;
         <button type="button" class="btn btn-danger" (click)="gotoHome()">Go Back</button>
     </div>
+
     <br><br>
     <div class="alert alert-info">
         <strong>{{ this.lastMsgTitle }}</strong>&nbsp;&nbsp;{{this.lastMsgText}}

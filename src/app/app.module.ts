@@ -15,6 +15,7 @@ import { CognitoChangePwdComponent } from './components/auth/cognito-change-pwd/
 import { CognitoForgotPwdComponent } from './components/auth/cognito-forgot-pwd/cognito-forgot-pwd.component';
 import { CognitoSessionComponent } from './components/auth/cognito-session/cognito-session.component';
 import { CognitoLogoutComponent } from './components/auth/cognito-logout/cognito-logout.component';
+import { CognitoTempPwdComponent } from './components/auth/cognito-temp-pwd/cognito-temp-pwd.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CognitoLogoutComponent } from './components/auth/cognito-logout/cognito
     CognitoChangePwdComponent,
     CognitoForgotPwdComponent,
     CognitoSessionComponent,
-    CognitoLogoutComponent
+    CognitoLogoutComponent,
+    CognitoTempPwdComponent
   ],
   imports: [
     BrowserModule,

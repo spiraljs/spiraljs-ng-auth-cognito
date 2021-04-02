@@ -4,9 +4,10 @@ import { HomeComponent } from './components/home/home.component';
 //import { CognitoHomeComponent } from './components/auth/cognito-home/cognito-home.component';
 import { CognitoRegisterComponent } from './components/auth/cognito-register/cognito-register.component';
 import { CognitoLoginComponent } from './components/auth/cognito-login/cognito-login.component';
-import { SetCognitoPasswordComponent } from './components/auth/set-cognito-password/set-cognito-password.component';
+// import { SetCognitoPasswordComponent } from './components/auth/set-cognito-password/set-cognito-password.component';
 import { ConfirmCognitoCodeComponent } from './components/auth/confirm-cognito-code/confirm-cognito-code.component';
 import { CognitoResendCodeComponent } from './components/auth/cognito-resend-code/cognito-resend-code.component';
+import { CognitoTempPwdComponent } from './components/auth/cognito-temp-pwd/cognito-temp-pwd.component';
 import { CognitoChangePwdComponent } from './components/auth/cognito-change-pwd/cognito-change-pwd.component';
 import { CognitoForgotPwdComponent } from './components/auth/cognito-forgot-pwd/cognito-forgot-pwd.component';
 import { CognitoSessionComponent } from './components/auth/cognito-session/cognito-session.component';
@@ -24,8 +25,9 @@ const routes: Routes = [
   { path: "get-session", component: CognitoSessionComponent },
   { path: "confirm-code", component: ConfirmCognitoCodeComponent },
   { path: "resend-code", component: CognitoResendCodeComponent },
-  { path: "set-password", component: SetCognitoPasswordComponent },
+  // { path: "set-password", component: SetCognitoPasswordComponent },
   { path: "change-password", component: CognitoChangePwdComponent },
+  { path: "change-temp-password", component: CognitoTempPwdComponent },
   { path: "forgot-password", component: CognitoForgotPwdComponent },
   { path: "logout", component: CognitoLogoutComponent }
 ];

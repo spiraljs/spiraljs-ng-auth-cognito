@@ -35,6 +35,7 @@ export class CognitoSessionComponent implements OnInit, ILoggedInCallback {
       this.lastMsgTitle = "Failed";
       this.lastMsgText = message;
     } else {
+      console.log(result.getAccessToken().payload.username)
       this.lastMsgTitle = "Session: ";
       this.lastMsgText = JSON.stringify(result);
     }
