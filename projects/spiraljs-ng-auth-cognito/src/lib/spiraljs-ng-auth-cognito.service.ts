@@ -204,7 +204,8 @@ export class SpiraljsNgAuthCognitoService {
           // the api doesn't accept this field back
           delete userAttributes.email_verified;
 
-          callback.authenticateCallback("new_password_required", userAttributes);
+          // sending cogntiUser to re-use the same session for calling cognitoUser.completeNewPasswordChallenge()
+          callback.authenticateCallback("new_password_required", cognitoUser);
         }
 
       });
@@ -625,11 +626,8 @@ export class SpiraljsNgAuthCognitoService {
    * @example
    * sample code here
    */
-  changeTempPassword(userPoolId: string, clientId: string, userId: string, newPassword: string, userAttributes: any, callback: ITempPasswordCallback) {
+  changeTempPassword(cognitoUser: any, newPassword: string, userAttributes: any, callback: ITempPasswordCallback) {
     try {
-      var userPool = this.prepareCognitoPool(userPoolId, clientId);
-      var cognitoUser = this.prepareCognitoUser(userPool, userId);
-
       cognitoUser.completeNewPasswordChallenge(newPassword, userAttributes, {
         onSuccess: result => {
           callback.tempPasswordCallback(null, "Temporary Password Changed");

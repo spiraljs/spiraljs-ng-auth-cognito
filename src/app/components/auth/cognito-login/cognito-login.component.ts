@@ -56,7 +56,7 @@ export class CognitoLoginComponent implements OnInit {
       } else if (message === 'new_password_required'){
         console.log("redirecting to change temporary password");
         this.cacheSvc.cognitoUserId = this.userId;
-        this.cacheSvc.userAttributes = result;
+        this.cacheSvc.cognitoUser = result;
         this.router.navigate(['/change-temp-password']);
       }
     } else { //success

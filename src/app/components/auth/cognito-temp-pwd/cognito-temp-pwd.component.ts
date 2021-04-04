@@ -29,15 +29,10 @@ export class CognitoTempPwdComponent implements OnInit, ITempPasswordCallback {
   }
 
   changePassword() {
-    console.log(this.cacheSvc.userPoolId);
-    console.log(this.cacheSvc.clientId);
-    console.log(this.cacheSvc.cognitoUserId);
-    console.log(this.newPassword);
-    console.log(this.cacheSvc.userAttributes);
-    this.cacheSvc.userAttributes = {
+    var userAttributes = {
       "email": this.cacheSvc.cognitoUserId
     }
-    this.loginSvc.changeTempPassword(this.cacheSvc.userPoolId, this.cacheSvc.clientId, this.cacheSvc.cognitoUserId,  this.newPassword, this.cacheSvc.userAttributes, this);
+    this.loginSvc.changeTempPassword(this.cacheSvc.cognitoUser,  this.newPassword, userAttributes, this);
   }
 
   tempPasswordCallback(message: string, result: any) {

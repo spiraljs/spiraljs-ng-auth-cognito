@@ -7,10 +7,11 @@ import { Injectable } from '@angular/core';
 export class CacheService {
   awsRegion: string = "us-east-1";
   identityPoolId: string = null;
+  cognitoUser: any = null;
   userPoolId: string = null;
   clientId: string = null;
   cognitoUserId: string = null;
-  userAttributes: any = null;
+  // userAttributes: any = null;
 
   constructor() { }
 }
