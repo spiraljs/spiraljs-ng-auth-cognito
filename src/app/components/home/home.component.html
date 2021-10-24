@@ -9,6 +9,10 @@
       <div class="card-body" style="cursor: pointer;" (click)="gotoAuthCognitoLogin()">Login</div>
     </div>
     <br>
+    <div class="card bg-success text-white">
+      <div class="card-body" style="cursor: pointer;" (click)="checkUserLoggedIn()">Is User Logged In?</div>
+    </div>
+    <br>
     <div class="card bg-info text-white">
       <div class="card-body" style="cursor: pointer;" (click)="gotoAuthCognitoConfirmCode()">Confirm Code</div>
     </div>
@@ -38,3 +42,6 @@
     </div>
   </div>
   <br><br><br>
+  <div class="alert alert-info">
+      <strong>{{ this.lastMsgTitle }}</strong>&nbsp;&nbsp;{{this.lastMsgText}}
+  </div>
